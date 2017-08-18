@@ -17,17 +17,18 @@ var hangmanGame = { hangmanWords:["THOR".split(""),
 				  			   return Math.floor((Math.random()*(this.hangmanWords.length-1)));
 				  				},
 
-				  	setWordToGuess: function(){
-				  		return this.hangmanWords[this.setRandom()];
-				  	},
+				  	wordToGuess: function(){
+				  				return this.hangmanWords[this.setRandom()];
+				  				},
 
-				  	setWordLetters: function(){
-				  		return new Array(this.setWordToGuess().length);
-				  	},
+				  	wordToGuessLetters: function(){
+				  				return new Array(this.wordToGuess().length);
+				  				},
 
-				  	setLetterBlanks: function(){
+
+				  	letterBlanks: function(){
 				  		//Replace each letter in the setWordLetter array with an _
-				  		this.letters = this.setWordLetters();
+				  		this.letters = this.wordToGuessLetters();
 				  		for(i = 0; i < this.letters.length; i++){
 				  			this.letters[i] = "_ ";
 				  		}
@@ -36,30 +37,31 @@ var hangmanGame = { hangmanWords:["THOR".split(""),
 
 				  	printBlanks: function(){
 				  		//Print blanks from setLetterBlanks at location of hangman ID
-				  			this.letters = this.setLetterBlanks();
+				  			this.letters = this.letterBlanks();
 				  			for(i = 0; i < this.letters.length; i++){
 				  				newTextNode = document.createTextNode(this.letters[i]);
 				  				this.hangman.appendChild(newTextNode);
 				  			}				  		
 				  	},
 
-				  	letterCheck: function(){
-				  		this.letters = this.setLetterBlanks();
-				  		this.userInput = event.key.toUpperCase();
-							for(i = 0; i < this.word.length; i++){
-				  				if(this.word[i] === this.userInput){
-				  					this.letters[i] = this.userInput + " ";
-				  					console.log(this.letters);
-				  				}
+				  	//letterCheck: function(){
+				  		//this.word = this.wordToGuess();
+				  		//this.letters = this.letterBlanks();
+				  		//this.userInput = event.key.toUpperCase();
+							//for(i = 0; i < this.word.length; i++){
+				  				//if(this.word[i] === this.userInput){
+				  				//	this.letters[i] = this.userInput + " ";
+				  					
+				  				//}
 				  				
-				  			}
+				  			//}console.log(this.letters);
 				  			
-				  			if(!this.correctGuess){
-				  				this.newTextNode = createTextNode(" " + this.userInput);
-				  				tried.appendChild(this.newTextNode);
-				  			}
+				  			//if(!this.correctGuess){
+				  			//	this.newTextNode = createTextNode(" " + this.userInput);
+				  			//	tried.appendChild(this.newTextNode);
+				  			//}
 								    
-				  	},
+				  	//},
 
 				  	inputValidation: function(){
 				  		//Compare the letter entered by the user to the letters in the chosen word
@@ -71,7 +73,16 @@ var hangmanGame = { hangmanWords:["THOR".split(""),
 				  		if(this.userInputIndex == -1){
 				  			alert("You have entered an invalid value. Please enter a letter between A and Z");
 				  		} else {
-				  			this.letterCheck();
+				  			this.word = this.wordToGuess();
+				  			this.letters = this.letterBlanks();
+				  		
+							for(i = 0; i < this.word.length; i++){
+				  				if(this.word[i] === this.userInput){
+				  					this.letters[i] = this.userInput + " ";
+				  					
+				  				}
+				  				
+				  			}console.log(this.letters);
 				  		}
 				  	},
 
