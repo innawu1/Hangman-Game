@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang = "en-us">
-
 <head>
 <meta charset ="UTF-8">
-<title>Hangman Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hangman - Marvel Comics Edition</title>
+<link rel ="icon" href="Assets/images/marvel-comics.png" type="image/gif" sizes="16x16">
 <link rel ="stylesheet" type="text/css" href="Assets/css/reset.css">
-<link rel="stylesheet" type="text/css" href="Assets/css/style.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
 </head>
 
 <body>
-<h1>Hangman</h1>
-<p id="hangman"></p>
-
-
+<div class = "container">
+	<div class = "page-header well">
+		<h1>Hangman - Marvel Comics Edition</h1>
+	</div>
+</div>
 <!--Handles Wrong Letters entered by User-->
-<p id="wrongLetters">Wrong Letters:</p>
-<p id="trys">Attempts Left</p>
-<p id="wins">Wins:</p>
-<p id="loses">Loses:</p>
-
+	<div class = "container">
+	<div class ="row">
+		<div class = "col-xs-12 col-md-8"><img id="winImg"></div>
+		<div class = "col-xs-12 col-md-4 well">
+		<div><span>Incorrect Letters:</span><span id="wrongLetters"></span></div>
+		<div><span>Attempts Remaining:</span><span id="tries"></span></div>
+		<div><span>Wins:</span> <span id="wins"></span></div>
+		<div><span>Losses:</span><span id="losses"></span></div>
+		<div><span id="hangman"></span></div>
+		</div>
+		<a class="btn btn-default" href="index.html" role="button">Reset</a>
+	</div>
+</div>
 <!---->
-
-
-
-
-
-</form>
-
-
 <script type="text/javascript" src="Assets/javascript/hangman.js"></script>
 </body>
 </html>

@@ -1,6 +1,11 @@
 body{
+	background-image: url("../images/marvel-background.jpg");
+	background-size: 1550px;
+	font-family: "Seymour One", sans-serif;
+	font-weight: bold;
+	color: #ff0000;
 }
 
-#hangman{
-
+#winImg{
+	height: 300px;
 }
